@@ -34,3 +34,9 @@ $("#inputArea").keydown(function(e){
      $("#textArea").append(letters[e.keyCode]);
    }
 });
+
+
+$("input[type='radio']").clicked(function() {
+  $("input:checked").prop('checked', false);
+  $(this).prop('checked', true);
+});
