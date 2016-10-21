@@ -26,17 +26,27 @@ var letters = {
   87: "w",
   88: "x",
   89: "y",
-  90: "z",
+  90: "z"
 }
 
 $("#inputArea").keydown(function(e){
-   if($("input:checked").val() == "echo"){
+   if ($("input:checked").val() == "echo"){
      $("#textArea").append(letters[e.keyCode]);
+   }
+
+   else if ($("input:checked").val() == "Caesarcipher") {
+     $("#textArea").append(letters[e.keyCode - 1]);
+   }
+
+   else if ($("input:checked").val() == "Heiroglyphics") {
+     var htmlString = "<img src='images/heiroglyphics/" + letters[e.keyCode] + ".gif'>";
+     console.log(htmlString)
+     $("#textArea").append(htmlString);
    }
 });
 
 
-$("input[type='radio']").clicked(function() {
+$("input[type='radio']").click(function() {
   $("input:checked").prop('checked', false);
   $(this).prop('checked', true);
 });
