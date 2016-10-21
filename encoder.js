@@ -26,7 +26,8 @@ var letters = {
   87: "w",
   88: "x",
   89: "y",
-  90: "z"
+  90: "z",
+  91: "a",
 }
 
 $("#inputArea").keydown(function(e){
@@ -50,3 +51,20 @@ $("input[type='radio']").click(function() {
   $("input:checked").prop('checked', false);
   $(this).prop('checked', true);
 });
+
+$("#translationInputArea").keydown(function(e){
+  if(e.keyCode == 13){
+    // grab the value of the input text box
+    var messageToDecode = $("#translationInputText").val();
+    // turn the string in the text box into an array
+    var messageArray = messageToDecode.split("");
+    // loop through array and translate EACH letters
+    for(var i =0; i < messageArray.length; i++) {
+
+      messageArray[i];
+
+      var translateNumber = messageArray[i].charCodeAt(0)-32 + 1;
+      $("#translationArea").append(letters[translateNumber])
+    }
+  }
+})
